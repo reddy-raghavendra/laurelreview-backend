@@ -1,8 +1,6 @@
-package com.nwmsu.laurelreview.models;
+package com.nwmsu.laurelreview.model;
 
 import javax.persistence.*;
-
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Entity
 public class User {
