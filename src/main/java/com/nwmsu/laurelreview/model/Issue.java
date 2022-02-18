@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Issue {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	private long issueId;
+	private Long issueId;
 	@Column
 	private String issueTitle;
 	@Column
@@ -17,16 +17,16 @@ public class Issue {
 	@Column
 	private boolean status;
 	@Column
-	private Blob issueAttachment;
+	private String issueAttachment;
 	@Column
-	private Blob issueImage;
+	private String issueImage;
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "issue")	
 	private List<IssueDetails> issueDetails;
 	
-	public Blob getIssueImage() {
+	public String getIssueImage() {
 		return issueImage;
 	}
-	public void setIssueImage(Blob issueImage) {
+	public void setIssueImage(String issueImage) {
 		this.issueImage = issueImage;
 	}
 	public long getIssueId() {
@@ -59,10 +59,10 @@ public class Issue {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
-	public Blob getIssueAttachment() {
+	public String getIssueAttachment() {
 		return issueAttachment;
 	}
-	public void setIssueAttachment(Blob issueAttachment) {
+	public void setIssueAttachment(String issueAttachment) {
 		this.issueAttachment = issueAttachment;
 	}
 	
