@@ -44,21 +44,6 @@ public class IssueController {
 		return "Saved Successfully";
 	}
 	
-	@PutMapping(value="issues/save/{issueId}")
-	public String updateIssue(@RequestBody Issue updatedIssue,@PathVariable long issueId) {
-		Issue issue = issueRepo.findById(issueId).orElse(null);
-		if(issue == null) {
-			return "No Record found for id"+issueId;
-		}
-		BeanUtils.copyProperties(updatedIssue, issue);
-		this.saveIssue(issue);
-		return "Updated..";
-	}
-	
-	@DeleteMapping(value="issues/delete/{issueId}")
-	public String deleteIssue(@PathVariable long issueId) {
-		issueRepo.deleteById(issueId);
-		return "Deleted";
-	}
+
 	
 }
