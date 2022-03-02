@@ -14,34 +14,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nwmsu.laurelreview.repo.IssueDetailsRepo;
 import com.nwmsu.laurelreview.repo.IssueRepo;
 import com.nwmsu.laurelreview.model.Issue;
+import com.nwmsu.laurelreview.model.IssueDetails;
 
 @CrossOrigin(origins = {"http://localhost:3000","http://localhost:3001"})
 @RestController
 @RequestMapping("api")
 public class IssueController {
-	private final IssueRepo issueRepo;
-	
+//	@Autowired
+	private IssueRepo issueRepo;
+//	@Autowired
+	private IssueDetailsRepo issueDetailsRepo;
 	@Autowired
-	public IssueController(IssueRepo issueRepo) {
+	public IssueController(IssueRepo issueRepo,IssueDetailsRepo issueDetailsRepo) {
 		this.issueRepo = issueRepo;
+		this.issueDetailsRepo = issueDetailsRepo;
 	}
 	
 	@GetMapping(value = "/issues")
 	public List<Issue> getIssues(){
+//		List<Issue> issues = issueRepo.findAll();
+//		System.out.println(issues);
 		return issueRepo.findAll();
 	}
 	
 	@GetMapping(value = "/issues/{issueId}")
-	public Issue getIssue(long id) {
-		return issueRepo.findById(id).orElse(null);
+	public Issue getIssue(@PathVariable Long issueId) {
+		return issueRepo.findById(issueId).orElse(null);
 	}
 	
 	@PostMapping(value="/issues/save")
 	public String saveIssue(@RequestBody Issue issue) {
 		issueRepo.save(issue);
-		return "Saved Successfully";
+		return "Saved successfully";
 	}
 	
 	@PutMapping(value="issues/save/{issueId}")

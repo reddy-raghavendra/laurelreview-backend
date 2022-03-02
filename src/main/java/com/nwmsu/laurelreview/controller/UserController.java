@@ -85,7 +85,7 @@ public class UserController {
         if (updatedUser == null) {
             return "User with ID " + id + " not exist";
         }
-
+        user.setId(id);
         BeanUtils.copyProperties(user, updatedUser);
         this.saveUser(updatedUser);
         return "updated...";
