@@ -16,6 +16,8 @@ public class AboutUs implements Serializable {
     @Column
     private String AboutUsName;
     @Column
+    private String AboutUsRole;
+    @Column
     private String AboutUsDesc;
     @Column
     private String AboutUsCoverImage;
@@ -32,11 +34,19 @@ public class AboutUs implements Serializable {
         return AboutUsName;
     }
 
-    public void setPodcastName(String podcastName) {
+    public void setAboutUsName(String AboutUsName) {
         this.AboutUsName = AboutUsName;
     }
 
-    public String getPodcastDesc() {
+    public String getAboutUsRole() {
+        return AboutUsRole;
+    }
+
+    public void setAboutUsRole(String AboutUsRole) {
+        this.AboutUsRole = AboutUsRole;
+    }
+
+    public String getAboutUsDesc() {
         return AboutUsDesc;
     }
 
