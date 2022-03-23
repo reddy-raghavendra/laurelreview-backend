@@ -28,23 +28,23 @@ public class AboutUsController {
         this.AboutUsRepo = AboutUsRepo;
     }
 
-    @GetMapping(value = "/AboutUs")
-    public List<AboutUs> getposCasts() {
+    @GetMapping(value = "/aboutus")
+    public List<AboutUs> getAboutUS() {
         return AboutUsRepo.findAll();
     }
 
-    @PostMapping(value = "/AboutUs/save")
-    public String saveAboutUs(@RequestBody AboutUs AboutUs) {
-        AboutUsRepo.save(AboutUs);
+    @PostMapping(value = "/aboutus/save")
+    public String saveAboutUs(@RequestBody AboutUs aboutUs) {
+        AboutUsRepo.save(aboutUs);
         return "AboutUs saved successfully";
     }
 
-    @GetMapping(value = "/AboutUs/{id}")
+    @GetMapping(value = "/aboutus/{id}")
     public AboutUs getPodCastById(@PathVariable Long id) {
         return AboutUsRepo.findById(id).get();
     }
 
-    @PutMapping(value = "AboutUs/update/{id}")
+    @PutMapping(value = "aboutus/update/{id}")
     public String updateAboutUs(@PathVariable Long id, @RequestBody AboutUs updatedAboutUs) {
         AboutUs AboutUs = AboutUsRepo.findById(id).orElse(null);
         if (AboutUs == null) {
@@ -57,7 +57,7 @@ public class AboutUsController {
         }
     }
 
-    @DeleteMapping(value = "AboutUs/delete/{id}")
+    @DeleteMapping(value = "aboutus/delete/{id}")
     public String deletePodcast(@PathVariable Long id) {
         AboutUsRepo.deleteById(id);
         return "Deleted Successfully";
