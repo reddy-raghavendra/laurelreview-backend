@@ -37,7 +37,7 @@ public class ChapbooksController {
 	}
 	
 	@PostMapping(value = "/chapbook/save")
-	public String savePoscast(@RequestBody ChapBook chapbook) {
+	public String saveChapBook(@RequestBody ChapBook chapbook) {
 		chapBookRepo.save(chapbook);
 		return "chapbook saved successfully";
 	}
@@ -53,9 +53,9 @@ public class ChapbooksController {
 		if (chapbook == null) {
 			return "chapbook with "+ id + " does not exist";
 		}else {
-			updatedchapbook.setchapbookId(id);
+			updatedchapbook.setchapBookId(id);
 			BeanUtils.copyProperties(updatedchapbook, chapbook);
-			this.savePoscast(chapbook);
+			this.saveChapBook(chapbook);
 			return "chapbook updated";
 		}
 	}

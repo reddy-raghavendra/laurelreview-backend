@@ -1,6 +1,3 @@
-
-
-
 package com.nwmsu.laurelreview.model;
 
 import java.io.Serializable;
@@ -20,12 +17,22 @@ public class ChapBook implements Serializable{
 	private String chapBookName;
 	@Column
 	private String chapBookDesc;
+	
 	@Column
-	private String chapBookDate;
-	@Column
-	private String chapBookAudioFile;
+	private String chapBookTitle;
+	//@Column
+	//private String chapBookAudioFile;
 	@Column
 	private String chapBookCoverImage;
+	@Column
+	private boolean status;
+	
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 	public Long getchapBookId() {
 		return chapBookId;
 	}
@@ -44,18 +51,18 @@ public class ChapBook implements Serializable{
 	public void setchapBookDesc(String chapBookDesc) {
 		this.chapBookDesc = chapBookDesc;
 	}
-	public String getchapBookDate() {
-		return chapBookDate;
+	public String getchapBookTitle() {
+		return chapBookTitle;
 	}
-	public void setchapBookDate(String chapBookDate) {
-		this.chapBookDate = chapBookDate;
+	public void setchapBookTitle(String chapBookTitle) {
+		this.chapBookTitle = chapBookTitle;
 	}
-	public String getchapBookAudioFile() {
-		return chapBookAudioFile;
-	}
-	public void setchapBookAudioFile(String chapBookAudioFile) {
-		this.chapBookAudioFile = chapBookAudioFile;
-	}
+//	public String getchapBookAudioFile() {
+//		return chapBookAudioFile;
+//	}
+//	public void setchapBookAudioFile(String chapBookAudioFile) {
+//		this.chapBookAudioFile = chapBookAudioFile;
+//	}
 	public String getchapBookCoverImage() {
 		return chapBookCoverImage;
 	}
